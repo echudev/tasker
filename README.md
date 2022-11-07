@@ -21,7 +21,7 @@ Hope you like it!
 
 ### Link
 
-- Live Site URL: https://tasker-iota.vercel.app/
+- Live Site URL: https://tasker-rho.vercel.app/
 
 ### Built with
 
