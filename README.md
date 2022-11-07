@@ -9,7 +9,8 @@
 
 ## Overview
 
-A Todo App inspired by "MS Todo" app, using React.js, Redux Toolkit and Material UI for designs.
+A Todo App inspired by "MS Todo" app, using React.js, Redux Toolkit and Material UI for designs. 
+Firebase was used for databases and authentication handling.
 Hope you like it!
 
 ### Screenshots
