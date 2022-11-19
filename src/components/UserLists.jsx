@@ -35,18 +35,33 @@ const UserLists = () => {
                 {lists.map((list) =>
                   list.id !== 'default'
                     ? (
-                        <ListItem sx={{ pl: 1, mb: 0 }} key={list.id} disablePadding>
+                        <ListItem sx={{ pl: 1, mb: 0.5 }} key={list.id} disablePadding>
                             <ListItemButton
                                 selected={list.id === activeList}
                                 onClick={() => selectListHandler(list.id)}
                                 sx={{
                                   p: 1,
+                                  position: 'relative',
                                   display: 'flex',
                                   alignItems: 'center',
                                   borderRadius: 1,
-                                  borderLeft: list.id === activeList ? `${blue[700]} solid 5px` : null
+                                  overflow: 'hidden',
+                                  '&::before': {
+                                    position: 'absolute',
+                                    left: 0,
+                                    zIndex: 1,
+                                    content: '""',
+                                    display: 'block',
+                                    width: 7,
+                                    transition: 'all 0.2s ease-in-out',
+                                    height: '100%',
+                                    transform: list.id === activeList ? 'translateX(0)' : 'translateX(-100%)',
+                                    borderTopLeftRadius: 5,
+                                    borderBottomLeftRadius: 5,
+                                    backgroundColor: blue[700]
+                                  }
                                 }}>
-                                <IconButton sx={{ pl: 0, pb: 0.5, pt: 0, pr: 0, color: 'text.primary' }} size='small' disableRipple>
+                                <IconButton sx={{ pl: 1, pb: 0.5, pt: 0, pr: 0, color: 'text.primary' }} size='small' disableRipple>
                                     {list.icon.emoji}
                                 </IconButton>
                                 <Typography

@@ -21,7 +21,7 @@ export default function CustomAppBar ({ setOpen }) {
         <Toolbar
           disableGutters
           sx={{
-            background: `linear-gradient(90deg, ${blue[900]} 40%, ${blue[800]} 90%)`,
+            background: blue[800],
             pr: 1,
             borderRadius: '2px'
           }}

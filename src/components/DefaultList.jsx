@@ -21,16 +21,31 @@ const DefaultList = () => {
 
                 {defaultList && (
                     <ListItemButton
+                        selected={defaultList.id === activeList}
+                        onClick={() => selectListHandler(defaultList.id)}
                         sx={{
                           p: 1,
+                          position: 'relative',
                           display: 'flex',
                           alignItems: 'center',
                           borderRadius: 1,
-                          borderLeft: activeList === 'default' ? `${blue[700]} solid 5px` : null
-                        }}
-                        selected={defaultList.id === activeList}
-                        onClick={() => selectListHandler(defaultList.id)}>
-                        <IconButton sx={{ pl: 0, pb: 0.5, pt: 0, pr: 0, color: 'text.primary' }} size='small' disableRipple>
+                          overflow: 'hidden',
+                          '&::before': {
+                            position: 'absolute',
+                            left: 0,
+                            zIndex: 1,
+                            content: '""',
+                            display: 'block',
+                            width: 7,
+                            transition: 'all 0.2s ease-in-out',
+                            height: '100%',
+                            transform: activeList === 'default' ? 'translateX(0)' : 'translateX(-100%)',
+                            borderTopLeftRadius: 5,
+                            borderBottomLeftRadius: 5,
+                            backgroundColor: blue[700]
+                          }
+                        }}>
+                        <IconButton sx={{ pl: 1, pb: 0.5, pt: 0, pr: 0, color: 'text.primary' }} size='small' disableRipple>
                             {defaultList.icon.emoji}
                         </IconButton>
                         <Typography
