@@ -83,14 +83,14 @@ export const sampleDatabase = [
     tasks: [
       {
         id: '0',
-        taskName: 'Calendario para ver las tareas por fecha y agregar recordatorios 📆',
+        taskName: 'Calendario 📆',
         status: 'pending',
         list: 'default',
         date: new Date().getTime()
       },
       {
         id: '1',
-        taskName: 'Drag and drop para reordenar listas y tareas',
+        taskName: 'Drag&drop',
         status: 'pending',
         list: 'default',
         date: new Date().getTime()
