@@ -19,7 +19,7 @@ export const startNewTask = (value) => {
     }
 
     if (status === 'authenticated') {
-      // cargo la tarea en firestore
+      // si está autenticado, cargo la tarea en firestore
       const newDoc = doc(collection(FirebaseDB, `${uid}/todo/tasks/`))
       await setDoc(newDoc, newTask)
       // le asigno el id de firestore a la tarea
@@ -27,7 +27,7 @@ export const startNewTask = (value) => {
       // cargo la tarea en el store local
       dispatch(addTask(newTask))
     } else {
-      // cargo la tarea en el store local
+      // en caso de no estar autenticado, solo cargo la tarea en el store local
       newTask.id = new Date().getTime()
       dispatch(addTask(newTask))
     }
@@ -46,11 +46,15 @@ export const startNewList = (value) => {
     }
 
     if (status === 'authenticated') {
+      // si está autenticado, cargo la lista en firestore
       const newDoc = doc(collection(FirebaseDB, `${uid}/todo/lists`))
       await setDoc(newDoc, newList)
+      // le asigno el id de firestore a la lista
       newList.id = newDoc.id
+      // cargo la lista en el store local
       dispatch(addList(newList))
     } else {
+      // en caso de no estar autenticado, solo cargo la lista en el store local
       newList.id = new Date().getTime()
       dispatch(addList(newList))
     }
